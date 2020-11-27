@@ -66,7 +66,7 @@ Route::get('productos/edit/{id}', function($id){
 
 // EJERCICIO 4 //
 
-Route::get('/', function(){
+/* Route::get('/', function(){
 
 	return view('home');
 
@@ -106,6 +106,33 @@ Route::get('productos/edit/{id}', function($id){
 
 	return view('productos.edit', array('id' => $id));
 
+}); */
+
+// ... //
+
+
+// CONTROLADORES //
+
+Route::get('/', 'App\Http\Controllers\HomeController@getHome');
+
+Route::get('login', function(){
+
+	return view('auth.login');
+
 });
+
+Route::get('logout', function(){
+
+	return 'Logout usuario';
+
+});
+
+Route::get('productos', 'App\Http\Controllers\ProductoController@getIndex');
+
+Route::get('productos/show/{id}', 'App\Http\Controllers\ProductoController@getShow');
+
+Route::get('productos/create', 'App\Http\Controllers\ProductoController@getCreate');
+
+Route::get('productos/edit/{id}', 'App\Http\Controllers\ProductoController@getEdit');
 
 // ... //
